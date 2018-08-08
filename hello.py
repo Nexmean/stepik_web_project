@@ -1,4 +1,4 @@
-from urlparse import parse_qs
+from urllib.parse import parse_qs
 
 
 def app(environ, start_response):
