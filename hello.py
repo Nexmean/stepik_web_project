@@ -7,8 +7,8 @@ def app(environ, start_response):
         ('Content-Type', 'text/plain')
     ])
 
-    return reduce(
-        lambda acc, value: acc + value + '\n',
-        ['{}={}'.format(key, value) for key, value in qs.items()],
-        '',
-    )
+    result = ''
+    for row in ['{}={}'.format(key, value) for key, value in qs.items()]:
+        result += row + '\n'
+
+    return result
