@@ -8,7 +8,8 @@ def app(environ, start_response):
     ])
 
     result = ''
-    for row in ['{}={}'.format(key, value) for key, value in qs.items()]:
-        result += row + '\n'
+    for key, values in qs.items():
+        for value in values:
+            result += '{}={}\n'.format(key, value)
 
-    return result
+    return [bytes(result)]
