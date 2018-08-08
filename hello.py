@@ -10,4 +10,5 @@ def app(environ, start_response):
     return reduce(
         lambda acc, value: acc + value + '\n',
         ['{}={}'.format(key, value) for key, value in qs.items()],
+        '',
     )
