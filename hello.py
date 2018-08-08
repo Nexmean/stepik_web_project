@@ -1,4 +1,5 @@
 from urllib.parse import parse_qs
+from string import join
 
 
 def app(environ, start_response):
@@ -6,4 +7,4 @@ def app(environ, start_response):
     start_response('200 OK', [
         ('Content-Type', 'text/plain')
     ])
-    return ['{}={}'.format(key, value) for key, value in qs.items()]
+    return join(['{}={}'.format(key, value) for key, value in qs.items()], '\n')
